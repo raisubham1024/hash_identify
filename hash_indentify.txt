@@ -1,0 +1,22 @@
+var elements = document.getElementsByClassName('col2');
+
+// Loop through each element and display its data, length, and data from col1
+for (var i = 0; i < elements.length; i++) {
+  var col2Value = elements[i].textContent.trim(); // Get data from col2 and remove leading and trailing whitespaces
+  
+  var col1Element = elements[i].previousElementSibling; // Get the previous sibling element
+  var col1Value = col1Element ? col1Element.textContent.trim() : ''; // Get data from col1 if exists, else empty string
+  
+  var length = col2Value.length;
+  
+  var displayText = col2Value + " (" + length + ")"; // Display data from col2 and its length
+  
+  if(col1Value !== '') {
+    displayText += " [" + col1Value + "]"; // Append data from col1 in brackets if it exists
+  }
+  
+  console.log(displayText); // Display the final text in console
+  
+  // You can also display it on the webpage instead of console
+  // Example: document.write(displayText);
+}
